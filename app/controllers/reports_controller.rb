@@ -29,7 +29,9 @@ class ReportsController < ApplicationController
 		full_summary = ""
 
 		team_updates.each do |tu|
-			full_summary += "#### " + tu.team.name + "\n"
+			if !tu.team.nil?
+				full_summary += "## " + tu.team.name + "\n"
+			end
 			full_summary += tu.summary + "\n\n"
 		end
 
